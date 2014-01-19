@@ -6,19 +6,22 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.context.support.ReloadableResourceBundleMessageSource;
 
 /**
- * Created with IntelliJ IDEA.
- * User: stantonbohmbach
- * Date: 12/31/13
- * Time: 12:13 PM
- * To change this template use File | Settings | File Templates.
+ * This is the configuration class used for creating beans
  */
 @Configuration
-public class AppConfiguration {
+public class PropertiesConfig {
 
     @Bean
     public MessageSource messageSource() {
         ReloadableResourceBundleMessageSource messageSource = new ReloadableResourceBundleMessageSource();
-        messageSource.setBasename("/WEB-INF/messages/messages");
+        messageSource.setBasename("/WEB-INF/properties/messages");
+        return messageSource;
+    }
+
+    @Bean
+    public MessageSource mysqlSource() {
+        ReloadableResourceBundleMessageSource messageSource = new ReloadableResourceBundleMessageSource();
+        messageSource.setBasename("/WEB-INF/properties/mysql");
         return messageSource;
     }
 }
