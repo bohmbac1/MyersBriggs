@@ -11,17 +11,17 @@ import org.springframework.context.support.ReloadableResourceBundleMessageSource
 @Configuration
 public class PropertiesConfig {
 
-    @Bean
+    @Bean(name = "messageSource")
     public MessageSource messageSource() {
         ReloadableResourceBundleMessageSource messageSource = new ReloadableResourceBundleMessageSource();
-        messageSource.setBasename("/WEB-INF/properties/messages");
+        messageSource.setBasename("classpath:properties/messages");
         return messageSource;
     }
 
-    @Bean
-    public MessageSource mysqlSource() {
+    @Bean(name = "persistenceSource")
+    public MessageSource persistenceSource() {
         ReloadableResourceBundleMessageSource messageSource = new ReloadableResourceBundleMessageSource();
-        messageSource.setBasename("/WEB-INF/properties/mysql");
+        messageSource.setBasename("classpath:properties/persistence");
         return messageSource;
     }
 }

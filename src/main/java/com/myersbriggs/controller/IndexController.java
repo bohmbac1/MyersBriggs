@@ -7,10 +7,13 @@ import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
+import javax.annotation.Resource;
+
 @Controller
 public class IndexController {
 
     @Autowired
+    @Resource(name = "messageSource")
     MessageSource messageSource;
 
 	@RequestMapping(value="/", method = RequestMethod.GET)
